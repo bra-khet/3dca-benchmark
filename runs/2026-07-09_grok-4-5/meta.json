@@ -1,0 +1,47 @@
+{
+  "task_id": "01-3dca-metaball-ca",
+  "benchmark": "3dca-local",
+  "prompt_file": "prompts/01-3dca-metaball-ca/prompt.txt",
+  "prompt_version": "1",
+  "date": "2026-07-09",
+  "model": "xai/grok-4-5",
+  "model_slug": "grok-4-5",
+  "temperature": null,
+  "shots": "one",
+  "tooling": "grok",
+  "operator": "agent",
+  "artifact": "output.html",
+  "preview": null,
+  "latency_ms": null,
+  "cost_usd": null,
+  "status": "passed",
+  "scores": {
+    "completeness": null,
+    "visual": null,
+    "interactivity": null,
+    "composite": null
+  },
+  "local_checks": {
+    "opens": null,
+    "sim_alive": null,
+    "raymarch_ok": null,
+    "controls_ok": null,
+    "fps_feel": null
+  },
+  "feature_checklist": {
+    "blob_sim": true,
+    "neighbor_rules": true,
+    "spawn_death": true,
+    "smooth_union_metaballs": true,
+    "lighting": true,
+    "energy_emissive": true,
+    "orbit_camera": true,
+    "mouse_controls": true,
+    "param_sliders": true,
+    "pause_reset": true,
+    "alive_count_ui": true,
+    "resize_handling": true,
+    "post_fx": true
+  },
+  "notes_summary": "One-shot self-contained WebGL2 raymarched metaball CA with O(n²) sim rules, smoothMin SDF, orbit controls, full param UI. Scores left for human browser review."
+}

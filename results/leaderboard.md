@@ -4,7 +4,7 @@ Informal comparison of archived runs (BridgeBench-style dimensions). Fill after 
 
 | Date | Model | Shots | Status | Completeness | Visual | Interactivity | Composite | Latency | Cost | Path | Summary |
 |------|-------|-------|--------|-------------:|-------:|--------------:|----------:|--------:|-----:|------|---------|
-| — | — | — | — | — | — | — | — | — | — | — | No runs yet |
+| 2026-07-09 | grok-4-5 | one | passed | — | — | — | — | — | — | [`../runs/2026-07-09_grok-4-5/output.html`](../runs/2026-07-09_grok-4-5/output.html) | WebGL2 raymarched metaball CA; full UI; scores pending browser review |
 
 ## How to add a row
 
