@@ -1,15 +1,17 @@
 # Workspace (active trial)
 
-Drop the **current** model’s HTML here while evaluating:
+Current model’s HTML lives here while you evaluate:
 
 - `output.html` — primary one-shot artifact
 
-When finished, copy this folder’s artifact into a new run directory:
+**Prompt source:** `../prompts/01-3dca-metaball-ca/prompt.txt` (also `../prompt.txt`).
+
+When finished, archive into:
 
 ```text
 runs/<YYYY-MM-DD>_<model-slug>/
 ```
 
-Fill in `meta.json` + optional `notes.md` from `runs/_template/`, then clear or overwrite `output.html` for the next trial.
+using `runs/_template/`, then clear or overwrite `output.html` for the next trial.
 
-Do not treat this folder as history — only `runs/` is archival.
+This folder is not history — only `runs/` is archival.

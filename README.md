@@ -1,83 +1,92 @@
 # 3DCA Benchmark
 
-Benchmark workspace for one-shot generation of a **self-contained HTML** raymarched metaball / cellular-growth demo (see `prompt.txt`).
+Local workspace for **BridgeBench-style** one-shot UI / animation prompts: give a model a fixed natural-language prompt, collect a **single self-contained HTML** artifact, archive it, and compare runs by eye plus simple scores.
 
-Use this folder to:
+Inspired by [BridgeBench UI Bench](https://www.bridgebench.ai/ui-bench) (e.g. `01-lava-lamp`) and [community test prompts](https://www.bridgebench.ai/test-prompts). This repo is **not** automated scoring infrastructure — just a place to run prompts and organize results.
 
-- Keep a single **canonical prompt** (`prompt.txt`)
-- Work on the current attempt in **`workspace/`**
-- Archive past model runs under **`runs/`**
-- Track comparisons in **`results/`**
-
-This is intentionally light scaffolding — not an automated harness.
+Primary task: raymarched 3D metaball / cellular-growth demo — see `prompt.txt` (also registered under `prompts/`).
 
 ## Quick start
 
-1. Copy `prompt.txt` into your model/tool of choice (do not edit the prompt for a fair baseline; if you do, note it in `meta.json`).
-2. Save the model’s one-shot HTML to `workspace/output.html` while iterating.
-3. When a run is “done” (accepted, abandoned, or scored), archive it:
+1. Open the task prompt (`prompt.txt` or `prompts/01-3dca-metaball-ca/`).
+2. Paste it into a model / agent (one-shot preferred for a fair baseline).
+3. Save the returned HTML as `workspace/output.html` and open it in a browser.
+4. When finished scoring, archive:
 
-   ```text
-   runs/<YYYY-MM-DD>_<model-slug>/
-     meta.json
-     output.html
-     notes.md          (optional)
+   ```powershell
+   $name = "$(Get-Date -Format yyyy-MM-dd)_model-slug"
+   Copy-Item -Recurse runs\_template "runs\$name"
+   Copy-Item workspace\output.html "runs\$name\output.html" -Force
+   # edit runs\$name\meta.json + notes.md
    ```
 
-4. Add a row to `results/leaderboard.md`.
+5. Add a row to `results/leaderboard.md`.
 
 ## Directory layout
 
 ```text
 3dca-benchmark/
-├── prompt.txt              # canonical benchmark prompt (source of truth)
-├── README.md               # this file
-├── workspace/              # active scratch — current trial only
-│   └── output.html         # working one-shot artifact (optional until first run)
+├── prompt.txt                 # convenience copy of the primary task prompt
+├── prompts/                   # task catalog (BridgeBench-style ids)
+│   └── 01-3dca-metaball-ca/
+│       ├── task.json          # id, title, category, scoring notes
+│       └── prompt.txt         # canonical prompt text for this task
+├── workspace/                 # active trial only (not history)
+│   └── output.html
 ├── runs/
-│   ├── _template/          # copy this for each new archived run
+│   ├── _template/             # copy per archived trial
 │   │   ├── meta.json
 │   │   ├── notes.md
-│   │   └── output.html     # placeholder
-│   └── <date>_<model>/     # one folder per completed trial
-└── results/
-    └── leaderboard.md      # summary table of past runs
+│   │   └── output.html
+│   └── <YYYY-MM-DD>_<model>/  # one folder per completed trial
+├── results/
+│   └── leaderboard.md
+├── HANDOFF.md                 # session handoff for the next operator/agent
+└── README.md
 ```
 
 ## Run naming
 
-Prefer:
-
 ```text
-runs/2026-07-09_claude-opus-4/
-runs/2026-07-09_gpt-4o/
-runs/2026-07-10_grok-4/
+runs/2026-07-09_claude-opus-4-8/
+runs/2026-07-09_gpt-5-4/
+runs/2026-07-10_grok-4-5/
 ```
 
-Slug rules: lowercase, hyphens, no spaces. Date = day the HTML was produced (local).
+Lowercase hyphens; date = day the HTML was produced. Same model same day: append `_r2`, `_temp0`, `_multi`.
 
-## Scoring (informal)
+## Scoring (BridgeBench-aligned, informal)
 
-There is no automatic scorer. Suggested dimensions for `meta.json` / leaderboard:
+BridgeBench UI tasks report roughly:
 
-| Field            | Meaning                                              |
-|------------------|------------------------------------------------------|
-| `opens`          | Loads with no console errors                         |
-| `sim_alive`      | Simulation does not go extinct / fill instantly      |
-| `raymarch_ok`    | Visible metaballs / SDF scene                        |
-| `controls_ok`    | Sliders / orbit / pause roughly work                 |
-| `visual`         | 1–5 subjective visual quality                        |
-| `code_quality`   | 1–5 structure / comments / maintainability           |
-| `fps_feel`       | 1–5 perceived performance on your machine            |
-| `notes`          | Free-form issues (artifacts, missing features, etc.) |
+| Dimension         | Range   | Meaning |
+|-------------------|---------|---------|
+| **completeness**  | 0–100   | Required pieces present and working (sim, render, controls, etc.) |
+| **visual**        | 0–100   | Look / motion / polish |
+| **interactivity** | 0–100   | Mouse, sliders, pause/reset, live response |
+| **composite**     | 0–100   | Optional overall (your blend; BridgeBench publishes a single task score) |
+| **latency_ms**    | ms      | Time to produce the artifact (generation, not FPS) |
+| **cost_usd**      | $       | If known |
+| **status**        | enum    | `passed` / `partial` / `failed` / `empty` |
+
+There is **no auto-judge** here. Score by opening the HTML and filling `meta.json`. Optional `feature_checklist` fields track prompt requirements in more detail.
 
 ## Fair comparison tips
 
-- Always start from the **same** `prompt.txt` for a baseline.
-- One shot preferred; if you allow multi-turn fixes, set `"shots": "multi"` and note turns in `meta.json`.
-- Record model id, temperature, and date.
-- Do not commit huge binary dumps; HTML only.
+- Same prompt text for a baseline (`prompts/01-3dca-metaball-ca/prompt.txt`).
+- Prefer **one shot**; multi-turn fixes → `"shots": "multi"` and note turn count.
+- Record model id, tooling, temperature, date, latency if available.
+- Artifact is HTML only (optional screenshot later as `preview.png` in the run folder).
+- Keep root `prompt.txt` in sync with `prompts/01-…/prompt.txt` if you edit the task.
 
-## Related idea
+## Adding another task later
 
-Same spirit as creative one-shot “lava lamp” style visual demos: fixed prompt, many models, archive each HTML + short notes, compare by eye and checklist.
+1. Create `prompts/02-<slug>/` with `task.json` + `prompt.txt`.
+2. Put the active prompt in `workspace/` when running that task (or note `task_id` in `meta.json`).
+3. Leaderboard can stay flat, or split by task sections as you grow.
+
+## External references
+
+- BridgeBench UI: https://www.bridgebench.ai/ui-bench  
+- Test prompts: https://www.bridgebench.ai/test-prompts  
+- Example task id pattern: `01-lava-lamp` (Animation)

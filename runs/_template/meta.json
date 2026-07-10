@@ -1,22 +1,31 @@
 {
-  "benchmark": "3dca-metaball-ca",
-  "prompt_file": "prompt.txt",
+  "task_id": "01-3dca-metaball-ca",
+  "benchmark": "3dca-local",
+  "prompt_file": "prompts/01-3dca-metaball-ca/prompt.txt",
   "prompt_version": "1",
   "date": "YYYY-MM-DD",
   "model": "vendor/model-id",
   "model_slug": "model-slug",
   "temperature": null,
   "shots": "one",
-  "tooling": "chat-ui | api | claude-code | cursor | other",
+  "tooling": "chat-ui | api | claude-code | cursor | grok | other",
   "operator": "",
   "artifact": "output.html",
+  "preview": null,
+  "latency_ms": null,
+  "cost_usd": null,
+  "status": "pending",
   "scores": {
+    "completeness": null,
+    "visual": null,
+    "interactivity": null,
+    "composite": null
+  },
+  "local_checks": {
     "opens": null,
     "sim_alive": null,
     "raymarch_ok": null,
     "controls_ok": null,
-    "visual": null,
-    "code_quality": null,
     "fps_feel": null
   },
   "feature_checklist": {

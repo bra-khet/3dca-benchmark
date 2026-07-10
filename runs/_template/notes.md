@@ -1,8 +1,24 @@
 # Run notes
 
+**Task:** `01-3dca-metaball-ca`  
 **Model:**  
 **Date:**  
 **Shots:** one / multi  
+**Status:** pending / passed / partial / failed / empty  
+
+## Scores (0–100, BridgeBench-style)
+
+| Dimension       | Score | Notes |
+|-----------------|------:|-------|
+| Completeness    |       | Required sim + raymarch + UI pieces present? |
+| Visual          |       | Organic look, motion, lighting, polish |
+| Interactivity   |       | Orbit, sliders, pause/reset, live feel |
+| Composite       |       | Your overall (optional) |
+
+## Latency / cost
+
+- Generation latency (ms):
+- Cost (USD):
 
 ## First impression
 
@@ -16,17 +32,17 @@
 
 -
 
-## Stability (long run ~1–2 min)
+## Stability (~1–2 min open)
 
 - Extinction / explosion / steady clusters?
 
-## Performance
+## Browser / machine
 
-- Machine:
 - Browser:
+- GPU / machine:
 - FPS feel:
 
-## Diff vs prompt requirements
+## Prompt requirement checklist
 
 | Requirement | Status | Notes |
 |-------------|--------|-------|

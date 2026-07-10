@@ -1,26 +1,30 @@
 # Archived runs
 
-Each completed (or abandoned-but-interesting) trial gets its own folder.
+Each completed (or abandoned-but-interesting) trial gets its own folder — one model output for one task prompt, same spirit as BridgeBench’s per-model HTML artifacts.
 
 ## Create a new run archive
 
-1. Copy the template:
+```powershell
+$name = "$(Get-Date -Format yyyy-MM-dd)_model-slug"
+Copy-Item -Recurse runs\_template "runs\$name"
+Copy-Item workspace\output.html "runs\$name\output.html" -Force
+# edit runs\$name\meta.json  (scores, model id, latency, status)
+# edit runs\$name\notes.md   (optional qualitative notes)
+```
 
-   ```powershell
-   $name = "$(Get-Date -Format yyyy-MM-dd)_model-slug"
-   Copy-Item -Recurse runs\_template "runs\$name"
-   ```
-
-2. Replace `runs\<name>\output.html` with the model artifact (from `workspace/` or the chat export).
-
-3. Edit `meta.json` (model id, date, scores, checklist).
-
-4. Fill `notes.md` if useful.
-
-5. Add a row to `../results/leaderboard.md`.
+Then append a row to `../results/leaderboard.md`.
 
 ## Folder name
 
-`YYYY-MM-DD_<model-slug>` — e.g. `2026-07-09_claude-sonnet-4`.
+`YYYY-MM-DD_<model-slug>` — e.g. `2026-07-09_claude-opus-4-8`.
 
-If you re-run the same model the same day, append a short suffix: `_r2`, `_temp0`, `_multi`.
+Same model same day: `_r2`, `_temp0`, `_multi`.
+
+## Optional files
+
+| File | Purpose |
+|------|---------|
+| `output.html` | Required — the one-shot artifact |
+| `meta.json` | Required — scores + provenance |
+| `notes.md` | Qualitative review |
+| `preview.png` | Optional still frame for gallery comparison |

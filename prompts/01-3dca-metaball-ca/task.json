@@ -1,0 +1,16 @@
+{
+  "id": "01-3dca-metaball-ca",
+  "title": "3D Metaball Cellular Growth",
+  "category": "Animation",
+  "format": "single-self-contained-html",
+  "prompt_file": "prompt.txt",
+  "root_convenience_copy": "../../prompt.txt",
+  "description": "One-shot creative demo: JS blob/CA-style growth rules + WebGL/Canvas raymarched smooth-union metaballs, energy-driven look, orbit camera, tunable UI.",
+  "inspired_by": "BridgeBench UI Bench animation tasks (e.g. 01-lava-lamp)",
+  "references": [
+    "https://www.bridgebench.ai/ui-bench",
+    "https://www.bridgebench.ai/test-prompts"
+  ],
+  "scoring_dimensions": ["completeness", "visual", "interactivity"],
+  "artifact_name": "output.html"
+}
