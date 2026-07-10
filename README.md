@@ -1,0 +1,1 @@
+This project acts as a benchmark for attempting a three-dimensional cellular automata using initially, hopefully, signed distance functions. 
