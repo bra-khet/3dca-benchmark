@@ -1,0 +1,38 @@
+{
+  "benchmark": "3dca-metaball-ca",
+  "prompt_file": "prompt.txt",
+  "prompt_version": "1",
+  "date": "YYYY-MM-DD",
+  "model": "vendor/model-id",
+  "model_slug": "model-slug",
+  "temperature": null,
+  "shots": "one",
+  "tooling": "chat-ui | api | claude-code | cursor | other",
+  "operator": "",
+  "artifact": "output.html",
+  "scores": {
+    "opens": null,
+    "sim_alive": null,
+    "raymarch_ok": null,
+    "controls_ok": null,
+    "visual": null,
+    "code_quality": null,
+    "fps_feel": null
+  },
+  "feature_checklist": {
+    "blob_sim": null,
+    "neighbor_rules": null,
+    "spawn_death": null,
+    "smooth_union_metaballs": null,
+    "lighting": null,
+    "energy_emissive": null,
+    "orbit_camera": null,
+    "mouse_controls": null,
+    "param_sliders": null,
+    "pause_reset": null,
+    "alive_count_ui": null,
+    "resize_handling": null,
+    "post_fx": null
+  },
+  "notes_summary": ""
+}
