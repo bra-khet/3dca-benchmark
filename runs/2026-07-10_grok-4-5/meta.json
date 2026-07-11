@@ -1,0 +1,50 @@
+{
+  "task_id": "02-simple-distillation-sim",
+  "benchmark": "3dca-local",
+  "prompt_file": "prompts/02-simple-distillation-sim/prompt.txt",
+  "prompt_version": "1",
+  "date": "2026-07-10",
+  "model": "xai/grok-4-5",
+  "model_slug": "grok-4-5",
+  "temperature": null,
+  "shots": "one",
+  "tooling": "grok",
+  "operator": "agent",
+  "artifact": "output.html",
+  "preview": null,
+  "latency_ms": null,
+  "cost_usd": null,
+  "status": "passed",
+  "scores": {
+    "completeness": null,
+    "visual": null,
+    "interactivity": null,
+    "composite": null
+  },
+  "local_checks": {
+    "opens": null,
+    "sim_alive": null,
+    "distillation_visible": null,
+    "controls_ok": null,
+    "fps_feel": null
+  },
+  "feature_checklist": {
+    "canvas_raf": true,
+    "particles_300_500": true,
+    "liquid_vapor_states": true,
+    "heat_zone_boiling": true,
+    "condenser_cooling": true,
+    "condensation_drip": true,
+    "receiver_accumulation": true,
+    "boundary_containment": true,
+    "heat_power_slider": true,
+    "cooling_rate_slider": true,
+    "particle_count_control": true,
+    "speed_pause_reset": true,
+    "thermometer_response": true,
+    "cooling_water_flow": true,
+    "legend_and_explain": true,
+    "reference_layout": true
+  },
+  "notes_summary": "One-shot canvas 2D distillation particle sim matching reference glassware layout; zone heating/cooling, phase change, UI panel. Scores left for human browser review."
+}

@@ -1,10 +1,19 @@
-# Leaderboard — `01-3dca-metaball-ca`
+# Leaderboard
 
 Informal comparison of archived runs (BridgeBench-style dimensions). Fill after each trial lands in `runs/`.
+
+## `01-3dca-metaball-ca`
 
 | Date | Model | Shots | Status | Completeness | Visual | Interactivity | Composite | Latency | Cost | Path | Summary |
 |------|-------|-------|--------|-------------:|-------:|--------------:|----------:|--------:|-----:|------|---------|
 | 2026-07-09 | grok-4-5 | one | passed | — | — | — | — | — | — | [`../runs/2026-07-09_grok-4-5/output.html`](../runs/2026-07-09_grok-4-5/output.html) | WebGL2 raymarched metaball CA; full UI; scores pending browser review |
+| 2026-07-09 | gpt-5-6-sol | one | passed | — | — | — | — | — | — | [`../runs/2026-07-09_gpt-5-6-sol/output.html`](../runs/2026-07-09_gpt-5-6-sol/output.html) | ECOTONE WebGL2 metaball CA; polished panel + trail post; scores pending browser review |
+
+## `02-simple-distillation-sim`
+
+| Date | Model | Shots | Status | Completeness | Visual | Interactivity | Composite | Latency | Cost | Path | Summary |
+|------|-------|-------|--------|-------------:|-------:|--------------:|----------:|--------:|-----:|------|---------|
+| 2026-07-10 | grok-4-5 | one | passed | — | — | — | — | — | — | [`../runs/2026-07-10_grok-4-5/output.html`](../runs/2026-07-10_grok-4-5/output.html) | Canvas 2D distillation particles; reference glassware; scores pending browser review |
 
 ## How to add a row
 

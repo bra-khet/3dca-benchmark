@@ -1,0 +1,18 @@
+Laboratory model of a still.
+
+1: The heat source to boil the mixture
+2: round-bottom flask containing the mixture to be boiled
+3: the head of the still
+4: mixture boiling-point thermometer
+5: the condenser of the still
+6: the cooling-water inlet of the condenser
+7: the cooling-water outlet of the condenser
+8: the distillate-receiving flask
+9: vacuum pump and gas inlet
+10: the receiver of the still
+11: the heat control for heating the mixture
+12: stirring mechanism speed control
+13: stirring mechanism and heating plate
+14: heating bath (oil/sand) for the flask
+15: the stirring mechanism (not shown, e.g. boiling chips or mechanical stirring machine)
+16: the distillate-cooling water bath.

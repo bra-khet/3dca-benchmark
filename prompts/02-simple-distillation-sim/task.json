@@ -1,0 +1,10 @@
+{
+  "id": "02-simple-distillation-sim",
+  "title": "Simple Water Distillation Particle Simulation",
+  "category": "canvas-physics-toy",
+  "prompt_file": "prompt.txt",
+  "prompt_version": "1",
+  "artifact": "single self-contained HTML",
+  "reference_image": "references/img/simple-distillation.png",
+  "scoring_notes": "completeness (zones, phase change, containment, UI), visual (reference match, polish), interactivity (sliders affect rate, pause/reset)"
+}

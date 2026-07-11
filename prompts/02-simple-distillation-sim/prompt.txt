@@ -1,0 +1,23 @@
+You are an expert front-end engineer and physics toy builder. Create a single, self-contained HTML file (one .html with embedded CSS and JS, no external dependencies except a possible CDN if you must) that implements a visually appealing, interactive 2D particle simulation of simple water distillation.
+
+Visual reference (primary): Use the attached image of the distillation setup (the classic educational diagram with the cyan-highlighted condenser, hanging red thermometer element, heated vessel on the left with numbered base elements, slanted condenser tube with cooling water arrows, and receiving vessel on the right). Replicate the overall layout, proportions, and schematic style as closely as possible for the static glassware. Secondary reference: standard simple distillation apparatus diagrams (round-bottom or similar boiling flask on heat source, thermometer probe, connection to Liebig-style water-jacketed condenser with visible inlet/outlet, vapor path through the condenser, condensate dripping into receiving flask).
+
+Core requirements:
+- Canvas-based animation (requestAnimationFrame). Dark or clean scientific aesthetic matching the reference image where possible.
+- 300–500 particles max. Each particle has position, velocity, temperature, and state ('liquid' or 'vapor').
+- Boiling flask / heated zone on left/bottom: liquid particles pool at the bottom. Bottom zone applies heating (temperature increase proportional to slider "Heat Power"). Probabilistic vaporization when temp exceeds threshold + upward velocity kick. Add simple bubble visuals or extra rising elements in the liquid.
+- Condenser tube (slanted or following the reference path): vapor particles travel through it. Define a cooled zone (jacket area). Vapor particles in/near this zone lose temperature. When a vapor particle cools below condensation threshold, it becomes liquid and begins to "drip" or slide toward the receiver (gentle gravity component along the tube slope or wall attraction cheat).
+- Receiving flask on right: condensed liquid particles collect here. Show accumulation (simple fill level or increasing particle count in receiver pool). Optional: subtle level bar or counter.
+- Basic wall/ boundary collisions using line segments or region rules so particles mostly stay inside the apparatus (minimize escaping particles).
+- UI controls (sliders + buttons, clean panel):
+  - Heat Power (0–100)
+  - Cooling Rate / Condenser strength (0–100)
+  - Number of particles (with add/remove)
+  - Simulation speed or pause/reset
+- Visual polish: color particles by state/temp (liquid deep blue/cyan, vapor lighter/whiter with some alpha or trail feel), glassware with semi-transparent strokes and highlights, animated cooling water arrows or small flow particles in the jacket, thermometer that roughly responds to average flask temperature, legend, title, and short explanation of the simplified model.
+- Performance: smooth 60 fps target on modest hardware. Keep code clean and commented, especially the physics rules and zone logic.
+- Success look: When heat is applied, you see boiling activity, vapor particles visibly rise and travel the condenser path, cooling causes condensation, and liquid collects in the receiver. Changing sliders visibly affects distillation rate. The apparatus looks recognizably like the reference diagram.
+
+Structure the JS cleanly (Particle class or object, simulation update loop, renderer, UI handlers, zone definitions). Start simple (region-based containment) and add line-segment collisions if time. Prioritize visual clarity and "it feels like distillation is happening" over physical perfection. Include a short comment block explaining the simplified thermodynamics (zone heating/cooling, probabilistic phase change, buoyancy cheats, etc.).
+
+Output the complete single HTML file into the project "runs" folder in an appropriately-named subdirectory.
